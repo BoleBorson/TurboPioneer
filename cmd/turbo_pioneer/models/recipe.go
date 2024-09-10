@@ -47,3 +47,7 @@ type Data struct {
 	Recipes map[string]Recipe `json:"recipes"`
 	Items   map[string]Item   `json:"items"`
 }
+
+type Recipes struct {
+	Recipes map[string]Recipe `json:"recipes"`
+}

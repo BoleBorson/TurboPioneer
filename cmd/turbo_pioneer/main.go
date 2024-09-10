@@ -10,35 +10,21 @@ import (
 )
 
 func main() {
-	jsonFile, err := os.Open("/home/cole/code-projects/TurboPioneer/data/data.json")
+	jsonFile, err := os.Open("/home/cole/code-projects/TurboPioneer/data/recipes.json")
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer jsonFile.Close()
 
-	// read our opened jsonFile as a byte array.
 	byteValue, _ := io.ReadAll(jsonFile)
 
-	// we initialize our Users array
-	var data models.Data
-
-	// we unmarshal our byteArray which contains our
-	// jsonFile's content into 'users' which we defined above
+	var data models.Recipes
 
 	err = json.Unmarshal(byteValue, &data)
 	if err != nil {
 		fmt.Println("Error unmarshalling JSON:", err)
 		return
 	}
-
-	for _, value := range data.Recipes {
-		for _, ivalue := range value.Ingredients {
-			itemName := &ivalue.Item
-			ivalue.ItemDefinition = data.Items[*itemName]
-		}
-	}
-
-	fmt.Println(data.Items["Desc_GoldIngot_C"])
 
 	for key, recipe := range data.Recipes {
 		fmt.Printf("Recipe Key: %s\n", key)
