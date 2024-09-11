@@ -9,8 +9,8 @@ import (
 	"github.com/BoleBorson/TurboPioneer/models"
 )
 
-func format_data() {
-	jsonFile, err := os.Open("/home/cole/code-projects/TurboPioneer/data/data.json")
+func FormatData() {
+	jsonFile, err := os.Open("/home/cole/code-projects/TurboPioneer/data/data1.0.json")
 	if err != nil {
 		fmt.Println(err)
 	}

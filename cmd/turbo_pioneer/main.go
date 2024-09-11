@@ -9,6 +9,10 @@ import (
 	"github.com/BoleBorson/TurboPioneer/models"
 )
 
+// func main() {
+// 	scripts.FormatData()
+// }
+
 func main() {
 	jsonFile, err := os.Open("/home/cole/code-projects/TurboPioneer/data/recipes.json")
 	if err != nil {
